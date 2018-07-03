@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/lines.css" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <title id="text_title">Lines</title>
+    <script src="js/jquery-1.4.4.min.js"></script>
+    <script src="js/jquery-ui-1.8.9.custom.min.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/lang/en.js" id="lang"></script>
+    <script id="load_lang">
+        LINES.loadLanguage();
+    </script>
+    <!--[if lt IE 9]> 
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 
+    <![endif]-->
+    <script src="js/lines.js"></script>
+  </head>  
+  <body>
+    <header>
+    <div style="float:right;">
+      <a href="index.html?lang=en" class="no-underline">
+        <img width="19" height="12" border="1" alt="English" title="English" src="images/english.gif">
+      </a>
+      <a href="index.html?lang=de" class="no-underline">
+        <img width="19" height="12" border="1" alt="Deutsch" title="Deutsch" src="images/german.gif">
+      </a>
+      <a href="index.html?lang=ru" class="no-underline">
+        <img width="19" height="12" border="1" alt="Русский" title="Русский" src="images/russian.gif">
+      </a>
+    </div>
+    <div style="clear:both;"></div>
+      <!--  <h1>RAINSU</h1>  -->
+      <input type="button"  value="Settings" 
+             id="text_settings" class="toggle_settings" />  
+      &nbsp;
+      <input type="button"  id="text_restart_game" value="Restart game" 
+             onClick="LINES.restartGame(); LINES.pausecomp(20); return false;" />
+      <div class="gui">
+        <span id="text_score">Score</span>: <span class="your_score">0</span>
+        <span id="highscore_max"></span>
+        <span id="text_empty_fields">Empty fields</span>: <span id="fields_empty"></span>
+        <span id="text_next_balls">Next balls</span>: <span id="next_balls"></span>
+      </div>  
+    </header>   
+    
+    <div class="content">
+      <div style="clear:both;"></div>
+      
+      <div id="settings" style="display:none;">          
+ 
+          <table class="settings">
+                    
+            <tr> 
+              <td>
+                <label for="settings_add_balls">
+                  <span id="text_settings_add_balls">New balls per turn</span></label>
+              </td>
+              <td id="settings_add_balls">         
+                <input type="number" size="4"
+                       name="settings_add_balls" 
+                       value="3" min="1" max="10" />
+              </td>                       
+            </tr>
+          
+            <tr> 
+              <td>
+                <label for="settings_force_add_balls">
+                  <span id="text_settings_force_add_balls">Add all balls</span></label>
+               
+              </td>
+              <td id="settings_force_add_balls">         
+                <input type="checkbox" 
+                       name="settings_force_add_balls" />
+              </td>                       
+            </tr>
+
+            <tr>
+              <td>
+                <label for="settings_animate_ball">
+                  <span id="text_settings_animate_ball">Show ball movement</span></label>
+
+              </td>
+              <td id="settings_animate_ball">
+                <input type="checkbox"
+                       name="settings_animate_ball" />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+              </td>
+              <td>
+                <input type="button"  id="text_add_balls" value="Add balls"
+                       onClick="LINES.addBallsToField(LINES.add_balls); return false;" />
+              </td>
+            </tr>        
+            
+            <tr>
+              <td>
+                <label for="settings_line_len_min">
+                  <span id="text_settings_line_len_min">Length of the lines</span></label>
+              </td>
+              <td id="settings_line_len_min">
+                <input type="number" size="4"
+                       name="settings_line_len_min" 
+                       value="5" min="1" max="20" />
+              </td>       
+            </tr>
+            
+            <tr>
+              <td>
+                <label for="settings_gamefield_cols">
+                  <span id="text_settings_gamefield_cols">Game field's width</span></label>
+              </td>
+              <td id="settings_gamefield_cols">
+                <input type="number" size="4"
+                       name="settings_gamefield_cols" 
+                       value="9" min="1" max="20" />
+              </td>
+            </tr>
+            
+            <tr>
+              <td>
+                <label for="settings_gamefield_rows">
+                  <span id="text_settings_gamefield_rows">Game field's height</span></label>
+              </td>
+              <td>
+                <div id="settings_gamefield_rows">
+                  <input type="number" size="4"
+                         name="settings_gamefield_rows" 
+                         value="9" min="1" max="20" />
+                </div>
+              </td>
+            </tr>
+   
+            <tr>
+              <td><span id="text_use_colors">Use colors:</span></td>
+              <td></td>
+            </tr>        
+            
+            <script>
+                LINES.drawMenuUseColorsPart();
+            </script>
+
+            <tr>
+              <td id="settings_background_img_use">
+                <label for="settings_background_img_use">
+                  <span id="text_settings_background_img">Background image</span>
+                </label>
+                <input type="checkbox"
+                       name="settings_background_img_use" />
+              </td>
+              <td id="settings_background_img">
+                <input type="text" name="settings_background_img" />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="settings_gamefield_cell_size">
+                  <span id="text_settings_gamefield_cell_size">Game field cell's size</span></label>
+              </td>
+              <td>
+                <div id="settings_gamefield_cell_size">
+                  <input type="number" size="4"
+                         name="settings_gamefield_cell_size"
+                         value="40" min="10" max="80" />
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <input type="button"  id="text_reset_settings" value="reset"
+                       onClick="LINES.storage.resetSettings(); return false;" />
+              </td>
+              <td>
+                <a href="javascript:;" id="text_settings_close" class="toggle_settings" 
+                   onClick="return false;" >
+                   Close settings  
+                </a>
+              </td>
+            </tr>
+          </table>
+          
+      </div>
+      <div id="place_for_board_wrapper">
+          <div id="pedestal_area_you" class="pedestal_area">
+              <div id="pedestal_you" class="pedestal"><div class="score your_score">0</div></div>
+          </div>
+          <div id="pedestal_area_king" class="pedestal_area">
+              <div id="pedestal_king" class="pedestal"><div class="score max_score">0</div></div>
+          </div>
+          <div id="place_for_board">
+          <script>
+                  LINES.drawGameboard(LINES.field_height, LINES.field_width);
+          </script>
+          <noscript>
+         This is a JavaScript game. Obviously you need activated JavaScript to play it.
+        </noscript>
+        </div>
+      </div>
+
+    </div>
+    <div style="clear:both;"></div>
+    <div id="highscores" align="center"></div>
+    <footer>
+      <p>RA I N SU v.0.5.6</p>
+    </footer> 
+    <script src="js/init.js"></script>
+    <div id="blockbg" class="freeze"></div>
+  </body>
+</html>

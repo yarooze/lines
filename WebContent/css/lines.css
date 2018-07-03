@@ -1,0 +1,201 @@
+@CHARSET "UTF-8";
+
+body {
+  background-color: #EFBD95;
+/*   background-image: url(http://lorempixel.com/1200/800/); */
+}
+
+.freeze {
+  visibility: show;
+  opacity: 0.0;
+  top: 0;
+  left: 0;
+  background-color: grey;
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%
+}
+
+/* designer stuff */
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+  
+    display:block;
+}
+
+header, footer, div.content {
+  
+  text-align: center;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+/* settings stuff */
+#settings {
+  padding:5px 0; 
+  margin: auto;
+  position: absolute;
+  z-index: 10;
+  background-color: #ffffff;
+  border: #333333 solid 1px;
+  /* width: 350px; */
+}
+
+table.settings {
+  /* border: 1px solid #333333; */
+  margin:     auto;
+  text-align: right;
+}
+
+/* game stuff */
+#place_for_board_wrapper {
+    width: 300px;
+    padding:5px 0;
+    margin: auto;
+}
+#place_for_board {
+}
+
+table.board {
+
+  border-top:    3px outset #bf7777;
+  border-right:  3px outset #6f3100;
+  border-bottom: 3px outset #6f3100;
+  border-left:   3px outset #bf7777;
+  margin: auto;
+/*  border-collapse: collapse; */
+  background-color: #8F4747;
+}
+
+table.board td {
+
+  border-top:    1px outset #6f3100;
+  border-right:  1px outset #bf7777;
+  border-bottom: 1px outset #bf7777;
+  border-left:   1px outset #6f3100;
+  width:  20px;
+  height: 20px;
+  padding: 0;   
+  background-color: #af6d6d;     
+}
+
+div.cell {
+  
+  width:  20px;
+  height: 20px;
+}
+
+a div.cell {
+}
+
+a:hover div.cell {
+  
+  background-color: #8F6B6B;
+}
+
+div.selected {
+  background-color: #cccccc;
+}
+
+/* Pedestal part */
+div.pedestal_area {
+    min-height: 250px;
+    position: relative;
+}
+#pedestal_area_you {
+    float: left;
+}
+#pedestal_area_king {
+    float: right;
+}
+div.pedestal {
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    border-bottom: 1px solid #000000;
+}
+.pedestal .score {
+    top: -20px;
+    position: relative;
+}
+#pedestal_you {
+  background-color: #00ff00;
+  left: 0;
+}
+#pedestal_king {
+  background-color: #ff0000;
+  right: 0;
+}
+
+/* balls */
+  
+.ball {  
+  background-repeat: no-repeat;
+  background-position:center center;
+}  
+  
+.b-black {
+  background-image:  url("../images/ball_black.png");
+}
+  
+.b-blue {
+  background-image:  url("../images/ball_blue.png");
+}
+  
+.b-green {
+  background-image:  url("../images/ball_green.png");
+}
+  
+.b-grey {
+  background-image:  url("../images/ball_grey.png");
+}
+  
+.b-magenta {
+  background-image:  url("../images/ball_magenta.png");
+}
+  
+.b-orange {
+  background-image:  url("../images/ball_orange.png");
+}
+  
+.b-red { 
+  background-image:  url("../images/ball_red.png");
+}
+
+.b-white {
+  background-image:  url("../images/ball_white.png");
+}
+  
+.b-yellow {
+  background-image:  url("../images/ball_yellow.png");
+}
+
+.b-smiley {
+  background-image:  url("../images/ball_smiley.png");
+}
+
+.b-smiley-confuse {
+  background-image:  url("../images/ball_smiley-confuse.png");
+}
+
+.b-smiley-cool {
+  background-image:  url("../images/ball_smiley-cool.png");
+}
+
+.b-smiley-cry {
+  background-image:  url("../images/ball_smiley-cry.png");
+}
+
+.b-smiley-draw {
+  background-image:  url("../images/ball_smiley-draw.png");
+}
+
+.b-smiley-eek {
+  background-image:  url("../images/ball_smiley-eek.png");
+}
+
+.b-smiley-evil {
+  background-image:  url("../images/ball_smiley-evil.png");
+}
